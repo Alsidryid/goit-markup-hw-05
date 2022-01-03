@@ -80,6 +80,7 @@ body {
   color: var(--secondary-color);
 }
 .navig-link {
+  position: relative;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -88,7 +89,30 @@ body {
   text-decoration: none;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.navig-link.studio::after {
+  position: absolute;
+  bottom: -1px;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--secondary-color);
+}
+.navig-link.portfolio::after {
+  position: absolute;
+  bottom: -1px;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--secondary-color);
+}
+
 .navig-link:hover {
   color: var(--secondary-color);
 }
@@ -106,6 +130,8 @@ body {
   text-decoration: none;
   padding-top: 32px;
   padding-bottom: 32px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .headers-contacts-icon {
   fill: var(--primyry-text-color);
@@ -113,6 +139,7 @@ body {
   width: 16px;
   height: 12px;
   margin-right: 9px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .headers-contacts:hover .headers-contacts-icon,
 .headers-contacts:focus .headers-contacts-icon {
@@ -124,6 +151,7 @@ body {
   width: 10px;
   height: 16px;
   margin-right: 9px;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .headers-contacts:hover .headers-contacts-tel,
 .headers-contacts:focus .headers-contacts-tel {
@@ -205,6 +233,7 @@ body {
   letter-spacing: 0.06em;
 
   color: var(--bacnd-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .main-butn:hover {
   background-color: var(--button-color);
@@ -213,6 +242,63 @@ body {
   background-color: var(--button-color);
 }
 
+/* модалка */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition-property: transform, opacity, visibility;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden {
+  transform: scale(0.7);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+.modal {
+  position: absolute;
+  width: 528px;
+  height: 581px;
+  background-color: var(--bacnd-color);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+.close-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--bacnd-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+}
+.svg-close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  fill: var(--logo-color);
+}
+.close-btn:focus,
+.close-btn:hover {
+  border-color: var(--button-color);
+}
+.close-btn:focus .svg-close,
+.close-btn:hover .svg-close {
+  fill: var(--button-color);
+}
 /* Наши плюсы */
 .services-picture {
   display: flex;
@@ -268,10 +354,28 @@ body {
   display: flex;
 }
 .oj-list-content {
+  position: relative;
   width: 370px;
 }
 .oj-list-content:not(:last-child) {
   margin-right: 30px;
+}
+.img-name {
+  position: absolute;
+  bottom: 0;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  width: 100%;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--bacnd-color);
+
+  background-color: rgba(47, 48, 58, 0.8);
 }
 /* Наша команда */
 .our-team {
@@ -297,6 +401,7 @@ body {
   width: 20px;
   height: 20px;
   fill: var(--icon-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .worker-link {
   display: flex;
@@ -306,6 +411,7 @@ body {
   height: 44px;
   background-color: var(--bacnd-color);
   border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .worker-link:hover,
 .worker-link:focus {
@@ -372,6 +478,7 @@ body {
 
 .clients-icon {
   fill: var(--icon-color);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-link {
   background-color: var(--bacnd-color);
@@ -382,6 +489,7 @@ body {
   height: 92px;
   border: 1px solid var(--icon-color);
   border-radius: 4px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-link:hover .clients-icon,
 .clients-link:focus .clients-icon {
@@ -409,12 +517,14 @@ body {
   letter-spacing: 0.03em;
   line-height: 1.7;
   color: var(--bacnd-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .second-adres {
   font-size: 14px;
   line-height: 1.7;
   letter-spacing: 0.03em;
   color: var(--adress-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* что бы футер небыл шире */
 .footr-list-content:not(:last-child) {
@@ -465,6 +575,7 @@ body {
   height: 44px;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .networks-link:focus,
 .networks-link:hover {
@@ -508,6 +619,8 @@ body {
 
   padding: 6px 22px;
   min-width: 73px;
+  transition-property: box-shadow, background-color, color;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .secondary-butns:hover {
   background-color: var(--secondary-color);
@@ -525,6 +638,27 @@ body {
   border-radius: 4px;
 }
 /* Селекторы категорий */
+.img-overlay {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  padding: 63px 24px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  top: 0;
+  transform: translateY(101%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.overlay-text {
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  color: var(--bacnd-color);
+}
+
 .categorie {
   margin-right: 30px;
   margin-bottom: 30px;
@@ -569,8 +703,15 @@ body {
   display: flex;
   flex-wrap: wrap;
 }
+.categories-box {
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .categories-box:hover,
 .categories-box:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.categories-box:hover .img-overlay .overlay,
+.categories-box:focus .img-overlay .overlay {
+  transform: translateY(0%);
 }

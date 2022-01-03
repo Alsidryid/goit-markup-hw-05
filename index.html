@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>goit-markup-hw-03</title>
+    <title>goit-markup-hw-05</title>
     <link rel="stylesheet" href="./css/modernnormalize.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,7 +48,21 @@
         <section class="hero">
             <div class="container">
                 <h1 class="hero-title title">Эффективные решения для вашего бизнеса</h1>
-                <button class="main-butn" type="button">Заказать услугу</button>
+                <button data-modal-open class="main-butn" type="button">Заказать услугу</button>
+            </div>
+            <div data-modal class="backdrop is-hidden">
+                <div class="modal">
+                    
+                    <button  data-modal-close class="close-btn" type="button">
+                        <svg width="18px" height="18px" class="svg-close">
+                            <use href="./images/icons.svg#icon-close">
+
+                            </use>
+                        </svg>
+                    </button>
+                    
+                </div>
+
             </div>
         </section>
     <!--Наши плюсы (скрытый заголовок)--> 
@@ -109,13 +123,13 @@
             <h2 class="our-job-title">Чем мы занимаемся</h2>
             <ul class="our-job-list list">
                 <li class="oj-list-content">
-                    <img src="./images/box1.jpg" alt="Програмирование" width="370">
+                    <img src="./images/box1.jpg" alt="Десктопные приложения" width="370"><div class="img-name">Десктопные приложения</div>
                 </li>
                 <li class="oj-list-content">
-                    <img src="./images/box2.jpg" alt="Разработка" width="370">
+                    <img src="./images/box2.jpg" alt="Мобильные приложения" width="370"><div class="img-name">Мобильные приложения</div>
                 </li>
                 <li class="oj-list-content">
-                    <img src="./images/box3.jpg" alt="Дизайн" width="370">
+                    <img src="./images/box3.jpg" alt="Дизайнерские решения" width="370"><div class="img-name">Дизайнерские решения</div>
                 </li>
             </ul>
        </div>
@@ -331,7 +345,7 @@
             
         
     </footer>
-
+    <script src="./js/modal.js"></script>
 
 </body>
 </html>
